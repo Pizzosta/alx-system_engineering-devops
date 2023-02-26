@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script will print "Best School" 10 times using only until
+
+str_count=0
+until [ $str_count -gt 9 ]
+do
+	echo "Best School"
+	((str_count++))
+done
