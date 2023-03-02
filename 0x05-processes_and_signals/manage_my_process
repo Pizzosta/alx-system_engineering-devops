@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 #a manage_my_process Bash script
 
-echo $$ > /tmp/my_process
 for (( i=0; i>=0; i++ ))
 do
-	echo "I am alive!"
+	echo "I am alive!" >> /tmp/my_process
 	sleep 2
 done
