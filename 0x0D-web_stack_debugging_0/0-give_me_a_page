@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# a script that fixs an Apache error that runs on a docker container
+
+echo "ServerName localhost" >> /etc/apache2.conf
+service apache2 start
