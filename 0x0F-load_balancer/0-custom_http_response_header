@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# script that installs nginx and configures it on a remote server
+# and also redirect the /redirect_me page of nginx server
+# redirection will be '301 Moved Permanently'
+# and also sets up a new 404 error page
+# The 404 page will display 'Ceci n'est pas une page'
+# The name of the custom HTTP header must be X-Served-By
+# server to be restarted to update changes
+
+sudo apt-get update
+
+sudo apt-get -y install nginx
+
+mkdir /etc/nginx/html
+touch /etc/nginx/html/index.html
+echo 'Hello World!' > /etc/nginx/html/index.html
+touch /etc/nginx/html/404.html
+echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
+
+printf %s "server {
+        listen 80;
+        listen [::]:80 default_server;
+        root /etc/nginx/html;
+        index index.html index.htm;
+        location /redirect_me {
+                return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+        }
+        error_page 404 /404.html;
+        location /404 {
+                root /etc/nginx/html;
+                internal;
+        }
+}" > /etc/nginx/sites-available/default
+
+sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\tadd_header X-Served-By \"$HOSTNAME\";/" /etc/nginx/nginx.conf
+
+service nginx restart
