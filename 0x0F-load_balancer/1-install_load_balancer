@@ -2,9 +2,9 @@
 # a script that Installs and setup haproxy
 
 apt-get install -y software-properties-common
-add-apt-repository -y ppa:vbernat/haproxy-1.8
+add-apt-repository -y ppa:vbernat/haproxy-2.6
 apt-get -y update
-apt-get install -y haproxy=1.8.\*
+apt-get install -y haproxy=2.6.\*
 
 echo "ENABLED=1" > /etc/default/haproxy
 
@@ -17,7 +17,6 @@ frontend lb
         default_backend webservers
 
 backend webservers
-        mode http
         balance roundrobin
         server 162801-web-01 52.86.198.91:80 check
         server 162801-web-02 52.207.52.133:80 check   
