@@ -1,1 +1,1 @@
-setting up MSQL on servers
+setting up MySQL on servers
