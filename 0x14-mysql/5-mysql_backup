@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Script that compress and backup a SQL dump
+
+# Check if the password argument is provided
+if [ -z "$1" ]; then
+  echo "Error: Please provide the MySQL root password as an argument."
+  exit 1
+fi
+
+# Get the current date for the archive name
+date_stamp=$(date +'%d-%m-%Y')
+
+# MySQL dump command
+mysqldump -u root --password="$1" --all-databases > backup.sql
+
+# Compress the MySQL dump to a tar.gz archive
+tar -czvf "$date_stamp.tar.gz" backup.sql
+
+echo "Backup created successfully: $date_stamp.tar.gz"
