@@ -29,8 +29,7 @@ def count_words(subreddit, word_list, after=None, count_dict=None):
         for article in articles:
             title = article['data']['title'].lower()
             for word in word_list:
-                if (word.lower() in title and
-                        not title.endswith(('.', '!', '_'))):
+                if word.lower() in title:
                     if word in count_dict:
                         count_dict[word] += 1
                     else:
@@ -42,8 +41,8 @@ def count_words(subreddit, word_list, after=None, count_dict=None):
                                count_dict=count_dict)
         else:
             sorted_counts = sorted(count_dict.items(),
-                                   key=lambda x: (-x[1], x[0]))
+                                   key=lambda x: (-x[1], x[0].lower()))
             for word, count in sorted_counts:
-                print('{}: {}'.format(word, count))
+                print('{}: {}'.format(word.lower(), count))
     else:
         return None
