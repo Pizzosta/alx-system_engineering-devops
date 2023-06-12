@@ -8,10 +8,14 @@ The web testing service of Project Artimus was unavailable during the outage per
 
 Timeline:
 
-•	Issue Detection: The issue was detected at 9:00 AM (GMT) when monitoring systems triggered alerts for service unavailability.
+•	Issue Detection: The issue was detected at 9:00 AM (GMT) when monitoring systems triggered alerts for service unavailability..
+
 •	Actions Taken: Immediately we started working on the incident. Initial investigation focused on network connectivity and server infrastructure. Assumptions were made that a network misconfiguration or server failure could be causing the issue.
+
 •	Misleading Investigation: The investigation initially explored network and server logs, but no anomalies were found. Attention then shifted to database performance, leading to time-consuming troubleshooting efforts in that area.
+
 •	Escalation: As the issue persisted, the incident was escalated as I blamed my colleague for the database administration and he also blaming me to be responsible for the web testing service.
+
 •	Incident Resolution: At 11:30 PM (GMT), the root cause was identified and resolved, restoring the functionality of the web testing service. 
  
 ![we have a problem](https://github.com/Pizzosta/alx-system_engineering-devops/assets/109488683/673ac62a-f1af-492b-864d-6ea95f289479)
