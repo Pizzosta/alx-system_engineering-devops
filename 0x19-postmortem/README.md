@@ -19,6 +19,7 @@ Timeline:
 Root Cause and Resolution:
 
 •	Root Cause: The outage was caused by a misconfigured firewall rule that blocked incoming traffic to the web testing service.
+
 •	Resolution: The misconfigured firewall rule was identified and corrected. Our DevOps knowledge came into being as we updated the firewall configuration to allow the necessary traffic. This restored service availability.
  
 Corrective and Preventative Measures:
