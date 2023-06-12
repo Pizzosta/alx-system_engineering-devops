@@ -1,7 +1,5 @@
-						![start](https://github.com/Pizzosta/alx-system_engineering-devops/assets/109488683/bbc6e250-4cf3-4ecc-9435-ef9bee95d5fb)
-	
+	![start](https://github.com/Pizzosta/alx-system_engineering-devops/assets/109488683/ad5022b3-fbd5-400e-9b34-8e76f4168b65)
 							POSTMORTEM: PROJECT ARTIMUS OUTAGE INCIDENT
-
 Project Artimus faced an outage incident on June 1st, 2023 lasting almost two and half hours from 9:00 AM to 11:30 PM (GMT).
 The web testing service of Project Artimus was unavailable during the outage period. Users experienced inability to submit test requests and access test results. Approximately 40% of the users were affected.
 
