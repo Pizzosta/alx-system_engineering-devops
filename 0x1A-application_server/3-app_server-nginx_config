@@ -1,0 +1,40 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    server_name 52.86.198.91
+
+    add_header X-Served-By 162801-web-01;
+
+    root   /var/www/html;
+    index  index.html;
+
+    location /hbnb_static {
+        alias /data/web_static/current;
+        index index.html;
+    }
+
+    location /redirect_me {
+        return 301 https://github.com/pizzosta/;
+    }
+
+    error_page 404 /404.html;
+    location /404 {
+      root /var/www/html;
+      internal;
+    }
+
+    location /airbnb-onepage/ {
+    include proxy_params;
+    proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    location /airbnb-dynamic/number_odd_or_even/ {
+    include proxy_params;
+    proxy_pass http://0.0.0.0:5001/number_odd_or_even/;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    }
+}
